@@ -1,15 +1,24 @@
 import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import CountrySelector from '../components/CountrySelector';
 import { useTranslation } from '../hooks/useTranslation';
 
-export default function HomeScreen() {
+export default function HomeScreen({ onBack }) {
   const { t, currentCountry } = useTranslation();
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header com seletor de país */}
+      {/* Header com botão voltar e seletor de país */}
       <View style={styles.header}>
+        <View style={styles.headerTop}>
+          <TouchableOpacity style={styles.backButton} onPress={onBack}>
+            <Text style={styles.backArrow}>‹</Text>
+            <Text style={styles.backText}>Voltar</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.headerTitle}>
+          <Text style={styles.screenTitle}>🌎 Global Bank Account</Text>
+        </View>
         <CountrySelector />
       </View>
 
@@ -47,10 +56,37 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: 20,
-    paddingTop: 20,
-    paddingBottom: 10,
+    paddingTop: 10,
+    paddingBottom: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#f0f0f0',
+  },
+  headerTop: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  backButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  backArrow: {
+    fontSize: 28,
+    color: '#820AD1',
+    marginRight: 4,
+    fontWeight: '300',
+  },
+  backText: {
+    fontSize: 16,
+    color: '#820AD1',
+  },
+  headerTitle: {
+    marginBottom: 16,
+  },
+  screenTitle: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: '#1a1a1a',
   },
   content: {
     flex: 1,
