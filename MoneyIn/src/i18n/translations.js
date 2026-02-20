@@ -122,8 +122,17 @@ export const translations = {
       balance: 'Available balance',
       moneyIn: 'Deposit',
       transferOut: 'Transfer',
+      send: 'Send',
       paymentAssistant: 'Payment Assistant',
       moneyBoxes: 'Money Boxes',
+      spending: 'Spending',
+      savings: 'Savings',
+      apy: 'APY',
+      interestEarned: 'Interest earned to date',
+      linkAccount: 'Link account',
+      transactions: 'Transactions',
+      search: 'Search',
+      disclaimer: 'Nu is a financial technology provider, not a bank. Banking services are provided by Lead Bank, Member FDIC.',
     },
     
     // Money In

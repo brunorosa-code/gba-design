@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import CountrySelector from '../components/CountrySelector';
 import { useTranslation } from '../hooks/useTranslation';
 
-export default function HomeScreen() {
+export default function HomeScreen({ onOpenGBADashboardUSA }) {
   const { t, currentCountry } = useTranslation();
+  const isUSA = currentCountry.code === 'usa';
 
   return (
     <SafeAreaView style={styles.container}>
@@ -27,14 +28,29 @@ export default function HomeScreen() {
           Moeda: {currentCountry.currency} ({currentCountry.currencySymbol})
         </Text>
 
-        <View style={styles.placeholder}>
-          <Text style={styles.placeholderText}>
-            {t('dashboard.title')}
-          </Text>
-          <Text style={styles.placeholderSubtext}>
-            Aqui ficarão as telas do protótipo
-          </Text>
-        </View>
+        {isUSA ? (
+          <TouchableOpacity
+            style={styles.placeholder}
+            onPress={onOpenGBADashboardUSA}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.placeholderText}>
+              {t('dashboard.title')}
+            </Text>
+            <Text style={styles.placeholderSubtext}>
+              Toque para abrir o GBA Dashboard (EUA)
+            </Text>
+          </TouchableOpacity>
+        ) : (
+          <View style={styles.placeholder}>
+            <Text style={styles.placeholderText}>
+              {t('dashboard.title')}
+            </Text>
+            <Text style={styles.placeholderSubtext}>
+              Aqui ficarão as telas do protótipo. Selecione EUA para acessar o GBA Dashboard.
+            </Text>
+          </View>
+        )}
       </View>
     </SafeAreaView>
   );
