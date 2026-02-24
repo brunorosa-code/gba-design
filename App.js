@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { CountryProvider } from './src/contexts/CountryContext';
-import AppHomeScreen from './src/screens/AppHomeScreen';
-import HomeScreen from './src/screens/HomeScreen';
+import { CountryProvider } from './shared/contexts/CountryContext';
+import AppHomeScreen from './screens/AppHomeScreen';
+import HomeScreen from './screens/HomeScreen';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState('appHome');

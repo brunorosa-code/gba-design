@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
-import CountrySelector from '../components/CountrySelector';
-import { useTranslation } from '../hooks/useTranslation';
+import CountrySelector from '../shared/components/CountrySelector';
+import { useTranslation } from '../shared/hooks/useTranslation';
 
 export default function HomeScreen({ onBack }) {
   const { t, currentCountry } = useTranslation();

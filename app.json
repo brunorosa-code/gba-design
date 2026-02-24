@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "MoneyIn",
-    "slug": "MoneyIn",
+    "name": "GBA Design",
+    "slug": "gba-design",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
