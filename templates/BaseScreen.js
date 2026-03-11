@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
-import Header from '../shared/components/Header';
+import { Header } from '@nubank/nuds-vibecode-react-native';
 import { colors } from '../shared/tokens/colors';
 
 export default function BaseScreen() {
@@ -8,9 +8,11 @@ export default function BaseScreen() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={colors.white} />
       <Header
-        type="back"
-        onBack={() => {}}
-        title="Título da tela"
+        type="standard"
+        title="Header title"
+        subtitle="Subtitle"
+        onBackPress={() => {}}
+        onActionPress={() => {}}
       />
       <View style={styles.content} />
     </SafeAreaView>
