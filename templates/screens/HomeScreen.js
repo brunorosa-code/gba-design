@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
-import CountrySelector from '../shared/components/CountrySelector';
-import { useTranslation } from '../shared/hooks/useTranslation';
+import CountrySelector from '../../shared/components/CountrySelector';
+import { useTranslation } from '../../shared/hooks/useTranslation';
 
-export default function HomeScreen({ onBack }) {
+export default function HomeScreen({ onBack, onOpenSelectBeneficiaryAccount, onOpenSuccessScreen }) {
   const { t, currentCountry } = useTranslation();
 
   return (
@@ -43,6 +43,22 @@ export default function HomeScreen({ onBack }) {
           <Text style={styles.placeholderSubtext}>
             Aqui ficarão as telas do protótipo
           </Text>
+          {onOpenSelectBeneficiaryAccount && (
+            <TouchableOpacity
+              style={styles.openSheetButton}
+              onPress={onOpenSelectBeneficiaryAccount}
+            >
+              <Text style={styles.openSheetButtonText}>Generic bottom sheet</Text>
+            </TouchableOpacity>
+          )}
+          {onOpenSuccessScreen && (
+            <TouchableOpacity
+              style={styles.openSheetButton}
+              onPress={onOpenSuccessScreen}
+            >
+              <Text style={styles.openSheetButtonText}>Success Screen</Text>
+            </TouchableOpacity>
+          )}
         </View>
       </View>
     </SafeAreaView>
@@ -121,5 +137,17 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#999',
     textAlign: 'center',
+  },
+  openSheetButton: {
+    marginTop: 20,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    backgroundColor: '#820AD1',
+    borderRadius: 8,
+  },
+  openSheetButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
   },
 });
