@@ -72,7 +72,7 @@ const FIGMA = {
     fontWeight: '400',
     lineHeight: 20.8,
     letterSpacing: -1,
-    color: colors.textSecondary,
+    color: '#666666',
   },
   paragraphSmall: {
     fontFamily: 'Graphik-Regular',
@@ -81,28 +81,28 @@ const FIGMA = {
     fontWeight: '400',
     lineHeight: 21,
     letterSpacing: -1,
-    color: colors.textSecondary,
+    color: '#666666',
   },
 };
 
-// Ícones — header: #000000 64% (rgba(0,0,0,0.64)) | lista: #000000 96% (rgba(0,0,0,0.96))
-const ICON_HEADER = 'rgba(0,0,0,0.64)';
-const ICON_LIST = 'rgba(0,0,0,0.96)';
-
+// arrow_back_icon.svg — ícone de voltar (#000000 64%)
 const ARROW_BACK_SVG =
-  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.29341 11.2938L14.2942 3.29297L15.7086 4.70733L8.41495 12.001L15.7086 19.2946L14.2942 20.709L6.29341 12.7081C5.90285 12.3176 5.90285 11.6843 6.29341 11.2938Z" fill="' + ICON_HEADER + '"/></svg>';
+  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.29341 11.2938L14.2942 3.29297L15.7086 4.70733L8.41495 12.001L15.7086 19.2946L14.2942 20.709L6.29341 12.7081C5.90285 12.3176 5.90285 11.6843 6.29341 11.2938Z" fill="black" fill-opacity="0.64"/></svg>';
 const ARROW_BACK_URI = `data:image/svg+xml,${encodeURIComponent(ARROW_BACK_SVG)}`;
 
+// check_icon.svg — list row à direita (#000000 96%)
 const CHECK_ICON_SVG =
-  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.8106 17.5566C10.4201 17.9471 9.78693 17.9471 9.3964 17.5566L3.73973 11.8999L5.15394 10.4857L10.1035 15.4352L20.003 5.53575L21.4172 6.94996L10.8106 17.5566Z" fill="' + ICON_LIST + '"/></svg>';
+  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.8106 17.5566C10.4201 17.9471 9.78693 17.9471 9.3964 17.5566L3.73973 11.8999L5.15394 10.4857L10.1035 15.4352L20.003 5.53575L21.4172 6.94996L10.8106 17.5566Z" fill="black" fill-opacity="0.96"/></svg>';
 const ROW_CHECK_URI = `data:image/svg+xml,${encodeURIComponent(CHECK_ICON_SVG)}`;
 
+// placeholder_icon.svg — list row à esquerda (#000000 96%)
 const PLACEHOLDER_ICON_SVG =
-  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.15381 21H3.15381V19H5.15381V21ZM9.15381 21H7.15381V19H9.15381V21ZM13.1538 21H11.1538V19H13.1538V21ZM17.1538 21H15.1538V19H17.1538V21ZM21.1538 19V21H19.1538V19H21.1538ZM5.15381 17H3.15381V15H5.15381V17ZM21.1538 17H19.1538V15H21.1538V17ZM5.15381 13H3.15381V11H5.15381V13ZM21.1538 13H19.1538V11H21.1538V13ZM5.15381 9H3.15381V7H5.15381V9ZM21.1538 9H19.1538V7H21.1538V9ZM5.15381 5H3.15381V3H5.15381V5ZM9.15381 5H7.15381V3H9.15381V5ZM13.1538 5H11.1538V3H13.1538V5ZM17.1538 5H15.1538V3H17.1538V5ZM21.1538 5H19.1538V3H21.1538V5Z" fill="' + ICON_LIST + '"/></svg>';
+  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.15381 21H3.15381V19H5.15381V21ZM9.15381 21H7.15381V19H9.15381V21ZM13.1538 21H11.1538V19H13.1538V21ZM17.1538 21H15.1538V19H17.1538V21ZM21.1538 19V21H19.1538V19H21.1538ZM5.15381 17H3.15381V15H5.15381V17ZM21.1538 17H19.1538V15H21.1538V17ZM5.15381 13H3.15381V11H5.15381V13ZM21.1538 13H19.1538V11H21.1538V13ZM5.15381 9H3.15381V7H5.15381V9ZM21.1538 9H19.1538V7H21.1538V9ZM5.15381 5H3.15381V3H5.15381V5ZM9.15381 5H7.15381V3H9.15381V5ZM13.1538 5H11.1538V3H13.1538V5ZM17.1538 5H15.1538V3H17.1538V5ZM21.1538 5H19.1538V3H21.1538V5Z" fill="black" fill-opacity="0.96"/></svg>';
 const PLACEHOLDER_ICON_URI = `data:image/svg+xml,${encodeURIComponent(PLACEHOLDER_ICON_SVG)}`;
 
+// help_icon.svg — ícone de ajuda (#000000 64%)
 const HELP_ICON_SVG =
-  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1549 8.26859C12.7736 8.04843 12.3303 7.96025 11.8938 8.01773C11.4572 8.0752 11.0518 8.27511 10.7405 8.58646C10.4291 8.89781 10.2292 9.30319 10.1717 9.73974C10.1455 9.93866 10.1496 10.139 10.1826 10.3342L8.21038 10.6676C8.14438 10.2771 8.13627 9.87647 8.18865 9.47866C8.30359 8.60557 8.70342 7.7948 9.32612 7.1721C9.94881 6.54941 10.7596 6.14958 11.6327 6.03463C12.5058 5.91969 13.3924 6.09605 14.155 6.53636C14.9177 6.97668 15.5137 7.65634 15.8507 8.46993C16.1877 9.28352 16.2468 10.1856 16.0189 11.0362C15.791 11.8868 15.2888 12.6385 14.5901 13.1746C14.1674 13.4989 13.7908 13.8146 13.5203 14.1461C13.254 14.4725 13.1549 14.736 13.1549 14.9648V15.0013H11.1547V14.9648C11.1547 14.1091 11.5387 13.4108 11.9705 12.8816C12.3982 12.3575 12.9348 11.9235 13.3725 11.5877C13.7218 11.3196 13.9729 10.9438 14.0869 10.5185C14.2008 10.0932 14.1713 9.64217 14.0028 9.23537C13.8343 8.82858 13.5363 8.48875 13.1549 8.26859Z" fill="' + ICON_HEADER + '"/><path d="M13.1549 18.0016V16.0014H11.1547V18.0016H13.1549Z" fill="' + ICON_HEADER + '"/><path d="M12.1548 22.002C17.6782 22.002 22.1558 17.5244 22.1558 12.001C22.1558 6.47761 17.6782 2 12.1548 2C6.63142 2 2.15381 6.47761 2.15381 12.001C2.15381 17.5244 6.63142 22.002 12.1548 22.002ZM12.1548 20.0018C7.7361 20.0018 4.15401 16.4197 4.15401 12.001C4.15401 7.58229 7.7361 4.0002 12.1548 4.0002C16.5736 4.0002 20.1556 7.58229 20.1556 12.001C20.1556 16.4197 16.5736 20.0018 12.1548 20.0018Z" fill="' + ICON_HEADER + '"/></svg>';
+  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1549 8.26859C12.7736 8.04843 12.3303 7.96025 11.8938 8.01773C11.4572 8.0752 11.0518 8.27511 10.7405 8.58646C10.4291 8.89781 10.2292 9.30319 10.1717 9.73974C10.1455 9.93866 10.1496 10.139 10.1826 10.3342L8.21038 10.6676C8.14438 10.2771 8.13627 9.87647 8.18865 9.47866C8.30359 8.60557 8.70342 7.7948 9.32612 7.1721C9.94881 6.54941 10.7596 6.14958 11.6327 6.03463C12.5058 5.91969 13.3924 6.09605 14.155 6.53636C14.9177 6.97668 15.5137 7.65634 15.8507 8.46993C16.1877 9.28352 16.2468 10.1856 16.0189 11.0362C15.791 11.8868 15.2888 12.6385 14.5901 13.1746C14.1674 13.4989 13.7908 13.8146 13.5203 14.1461C13.254 14.4725 13.1549 14.736 13.1549 14.9648V15.0013H11.1547V14.9648C11.1547 14.1091 11.5387 13.4108 11.9705 12.8816C12.3982 12.3575 12.9348 11.9235 13.3725 11.5877C13.7218 11.3196 13.9729 10.9438 14.0869 10.5185C14.2008 10.0932 14.1713 9.64217 14.0028 9.23537C13.8343 8.82858 13.5363 8.48875 13.1549 8.26859Z" fill="black" fill-opacity="0.64"/><path d="M13.1549 18.0016V16.0014H11.1547V18.0016H13.1549Z" fill="black" fill-opacity="0.64"/><path d="M12.1548 22.002C17.6782 22.002 22.1558 17.5244 22.1558 12.001C22.1558 6.47761 17.6782 2 12.1548 2C6.63142 2 2.15381 6.47761 2.15381 12.001C2.15381 17.5244 6.63142 22.002 12.1548 22.002ZM12.1548 20.0018C7.7361 20.0018 4.15401 16.4197 4.15401 12.001C4.15401 7.58229 7.7361 4.0002 12.1548 4.0002C16.5736 4.0002 20.1556 7.58229 20.1556 12.001C20.1556 16.4197 16.5736 20.0018 12.1548 20.0018Z" fill="black" fill-opacity="0.64"/></svg>';
 const HELP_ICON_URI = `data:image/svg+xml,${encodeURIComponent(HELP_ICON_SVG)}`;
 
 // Ilustração Well Done — well_done_ilustra.svg | alinhamento à esquerda, espaçamento 24px
@@ -131,12 +131,6 @@ export default function SuccessScreen({
   onBack,
   onHelp,
 }) {
-  const titleFontFamily = Platform.OS === 'web' ? FIGMA.title.fontFamilyWeb : FIGMA.title.fontFamily;
-  const subtitleFontFamily = Platform.OS === 'web' ? FIGMA.subtitle.fontFamilyWeb : FIGMA.subtitle.fontFamily;
-  const labelStrongFontFamily = Platform.OS === 'web' ? FIGMA.labelStrong.fontFamilyWeb : FIGMA.labelStrong.fontFamily;
-  const labelDefaultFontFamily = Platform.OS === 'web' ? FIGMA.labelDefault.fontFamilyWeb : FIGMA.labelDefault.fontFamily;
-  const paragraphFontFamily = Platform.OS === 'web' ? FIGMA.paragraphSmall.fontFamilyWeb : FIGMA.paragraphSmall.fontFamily;
-
   return (
     <SafeAreaView style={styles.container}>
       {showTopBar && (
@@ -150,7 +144,7 @@ export default function SuccessScreen({
           >
             <Image source={{ uri: ARROW_BACK_URI }} style={styles.topBarIcon} resizeMode="contain" />
           </TouchableOpacity>
-          <Text style={[styles.topBarTitle, { fontFamily: labelStrongFontFamily }]} numberOfLines={1}>
+          <Text style={styles.topBarTitle} numberOfLines={1}>
             {screenTitle}
           </Text>
           <TouchableOpacity
@@ -177,8 +171,8 @@ export default function SuccessScreen({
 
         {/* Título e subtítulo */}
         <View style={styles.headerTextBlock}>
-          <Text style={[styles.headerTitle, { fontFamily: titleFontFamily }]}>{title}</Text>
-          <Text style={[styles.headerSubtitle, { fontFamily: subtitleFontFamily }]}>{subtitle}</Text>
+          <Text style={styles.headerTitle}>{title}</Text>
+          <Text style={styles.headerSubtitle}>{subtitle}</Text>
         </View>
 
         {/* List rows — 78px height cada (Figma) */}
@@ -187,19 +181,19 @@ export default function SuccessScreen({
             {items.map((item, index) => (
               <View
                 key={item.id || index}
-                style={[styles.listRow, index < items.length - 1 && styles.listRowBorder]}
+                style={[styles.listRow, styles.listRowBorder]}
               >
                 <Image source={{ uri: PLACEHOLDER_ICON_URI }} style={styles.listRowIcon} resizeMode="contain" />
                 <View style={styles.listRowContent}>
-                  <Text style={[styles.listRowPrimary, { fontFamily: labelStrongFontFamily }]}>
+                  <Text style={styles.listRowPrimary}>
                     {item.primaryLabel}
                   </Text>
-                  <Text style={[styles.listRowDescription, { fontFamily: paragraphFontFamily }]}>
+                  <Text style={styles.listRowDescription}>
                     {item.description}
                   </Text>
                 </View>
                 <View style={styles.listRowRight}>
-                  <Text style={[styles.listRowSecondary, { fontFamily: labelDefaultFontFamily }]}>
+                  <Text style={styles.listRowSecondary}>
                     {item.secondaryLabel}
                   </Text>
                   <Image source={{ uri: ROW_CHECK_URI }} style={styles.listRowCheck} resizeMode="contain" />
@@ -219,7 +213,7 @@ export default function SuccessScreen({
           accessibilityLabel={primaryActionLabel}
           accessibilityRole="button"
         >
-          <Text style={[styles.primaryButtonText, { fontFamily: labelStrongFontFamily }]}>
+          <Text style={styles.primaryButtonText}>
             {primaryActionLabel}
           </Text>
         </TouchableOpacity>
@@ -251,21 +245,13 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
   },
-  topBarChevron: {
-    fontSize: 28,
-    color: FIGMA.title.color,
-    lineHeight: 32,
-  },
-  topBarHelp: {
-    fontSize: 18,
-    color: FIGMA.title.color,
-    fontWeight: '500',
-  },
   topBarTitle: {
+    fontFamily: Platform.OS === 'web' ? FIGMA.labelStrong.fontFamilyWeb : FIGMA.labelStrong.fontFamily,
     fontSize: 16,
     fontWeight: '500',
-    color: FIGMA.title.color,
+    lineHeight: 20.8,
     letterSpacing: -1,
+    color: FIGMA.title.color,
     flex: 1,
     textAlign: 'center',
     marginHorizontal: spacing.sm,
@@ -290,6 +276,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.xl,
   },
   headerTitle: {
+    fontFamily: Platform.OS === 'web' ? FIGMA.title.fontFamilyWeb : FIGMA.title.fontFamily,
     fontSize: FIGMA.title.fontSize,
     fontWeight: FIGMA.title.fontWeight,
     lineHeight: FIGMA.title.lineHeight,
@@ -297,6 +284,7 @@ const styles = StyleSheet.create({
     color: FIGMA.title.color,
   },
   headerSubtitle: {
+    fontFamily: Platform.OS === 'web' ? FIGMA.subtitle.fontFamilyWeb : FIGMA.subtitle.fontFamily,
     fontSize: FIGMA.subtitle.fontSize,
     fontWeight: FIGMA.subtitle.fontWeight,
     lineHeight: FIGMA.subtitle.lineHeight,
@@ -328,6 +316,7 @@ const styles = StyleSheet.create({
     minWidth: 0,
   },
   listRowPrimary: {
+    fontFamily: Platform.OS === 'web' ? FIGMA.labelStrong.fontFamilyWeb : FIGMA.labelStrong.fontFamily,
     fontSize: FIGMA.labelStrong.fontSize,
     fontWeight: FIGMA.labelStrong.fontWeight,
     lineHeight: FIGMA.labelStrong.lineHeight,
@@ -335,6 +324,7 @@ const styles = StyleSheet.create({
     color: FIGMA.labelStrong.color,
   },
   listRowDescription: {
+    fontFamily: Platform.OS === 'web' ? FIGMA.paragraphSmall.fontFamilyWeb : FIGMA.paragraphSmall.fontFamily,
     fontSize: FIGMA.paragraphSmall.fontSize,
     fontWeight: FIGMA.paragraphSmall.fontWeight,
     lineHeight: FIGMA.paragraphSmall.lineHeight,
@@ -348,6 +338,7 @@ const styles = StyleSheet.create({
     marginLeft: spacing.sm,
   },
   listRowSecondary: {
+    fontFamily: Platform.OS === 'web' ? FIGMA.labelDefault.fontFamilyWeb : FIGMA.labelDefault.fontFamily,
     fontSize: FIGMA.labelDefault.fontSize,
     fontWeight: FIGMA.labelDefault.fontWeight,
     lineHeight: FIGMA.labelDefault.lineHeight,
@@ -373,9 +364,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   primaryButtonText: {
+    fontFamily: Platform.OS === 'web' ? FIGMA.labelStrong.fontFamilyWeb : FIGMA.labelStrong.fontFamily,
     fontSize: 16,
     fontWeight: '500',
-    color: '#FFFFFF',
+    lineHeight: 20.8,
     letterSpacing: -1,
+    color: '#FFFFFF',
   },
 });

@@ -72,16 +72,16 @@ export default function App() {
 
       {currentScreen === 'success' && (
         <SuccessScreen
-          title="Tudo certo!"
-          subtitle="Sua operação foi concluída com sucesso."
+          title="Header title"
+          subtitle="Sub title"
           items={[
-            { id: '1', primaryLabel: 'Transferência', description: 'Enviada para conta destino', secondaryLabel: 'Concluída' },
-            { id: '2', primaryLabel: 'Valor', description: 'Disponível em 1 dia útil', secondaryLabel: 'OK' },
+            { id: '1', primaryLabel: 'Primary label', description: 'Description', secondaryLabel: 'Secondary' },
+            { id: '2', primaryLabel: 'Primary label', description: 'Description', secondaryLabel: 'Secondary' },
           ]}
-          primaryActionLabel="Continuar"
+          primaryActionLabel="Primary action"
           onPrimaryAction={() => setCurrentScreen('gba')}
           showTopBar={true}
-          screenTitle="Sucesso"
+          screenTitle="Screen Title"
           onBack={() => setCurrentScreen('gba')}
           onHelp={() => {}}
         />
