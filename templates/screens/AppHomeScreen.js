@@ -17,7 +17,6 @@ export default function AppHomeScreen({ onNavigateToGBA }) {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor={NUBANK_PURPLE} />
-      
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.profileIcon}>

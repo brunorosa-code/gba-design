@@ -20,6 +20,36 @@ export default function TemplatesArea({ onNavigate, onBackPress, onActionPress }
           showDivider
           onPress={() => onNavigate?.('inputAmount')}
         />
+        <ListRow
+          label="Pin Screen"
+          showChevron
+          showDivider
+          onPress={() => onNavigate?.('pin')}
+        />
+        <ListRow
+          label="Search Template Screen"
+          showChevron
+          showDivider
+          onPress={() => onNavigate?.('searchTemplate')}
+        />
+        <ListRow
+          label="Select Beneficiary Account Screen"
+          showChevron
+          showDivider
+          onPress={() => onNavigate?.('selectBeneficiaryAccount')}
+        />
+        <ListRow
+          label="Success Screen"
+          showChevron
+          showDivider
+          onPress={() => onNavigate?.('success')}
+        />
+        <ListRow
+          label="Review Screen"
+          showChevron
+          showDivider
+          onPress={() => onNavigate?.('review')}
+        />
       </ScrollView>
     </View>
   );

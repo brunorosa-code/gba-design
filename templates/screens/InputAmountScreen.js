@@ -28,7 +28,7 @@ function formatCurrency(raw) {
   return `${formattedInt},${decPart}`;
 }
 
-export default function InputAmountScreen() {
+export default function InputAmountScreen({ onBack }) {
   const [rawDigits, setRawDigits] = useState('');
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
@@ -64,7 +64,7 @@ export default function InputAmountScreen() {
         title=""
         show1stAction={false}
         show2ndAction={false}
-        onBackPress={() => {}}
+        onBackPress={onBack ?? (() => {})}
       />
 
       <View style={styles.body}>

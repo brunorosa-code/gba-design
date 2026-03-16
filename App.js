@@ -8,14 +8,18 @@ import AppHomeScreen from './templates/screens/AppHomeScreen';
 import HomeScreen from './templates/screens/HomeScreen';
 import SelectBeneficiaryAccountScreen from './templates/screens/SelectBeneficiaryAccountScreen';
 import SuccessScreen from './templates/screens/SuccessScreen';
-import InputAmountScreen from './sandbox/bruno/InputAmountScreen';
-import TemplatesArea from './sandbox/bruno/TemplatesArea';
+import PinScreen from './templates/screens/PinScreen';
+import SearchTemplateScreen from './templates/screens/SearchTemplateScreen';
+import ReviewScreen from './templates/screens/ReviewScreen';
+import InputAmountScreen from './templates/screens/InputAmountScreen';
+import TemplatesArea from './templates/screens/TemplatesArea';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState('templatesArea');
   const [showSelectBeneficiaryAccount, setShowSelectBeneficiaryAccount] = useState(false);
+  const [successScreenBackTo, setSuccessScreenBackTo] = useState('templatesArea');
 
   const [fontsLoaded] = useFonts({
     'Graphik-Thin': require('./assets/fonts/Graphik-Thin-Trial.otf'),
@@ -51,11 +55,18 @@ export default function App() {
   return (
     <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
       <CountryProvider>
-        <StatusBar style={currentScreen === 'appHome' ? 'light' : 'auto'} />
+        <StatusBar hidden />
 
         {currentScreen === 'templatesArea' && (
           <TemplatesArea
-            onNavigate={(screen) => setCurrentScreen(screen)}
+            onNavigate={(screen) => {
+              if (screen === 'selectBeneficiaryAccount') {
+                setShowSelectBeneficiaryAccount(true);
+              } else {
+                if (screen === 'success') setSuccessScreenBackTo('templatesArea');
+                setCurrentScreen(screen);
+              }
+            }}
             onBackPress={() => {}}
             onActionPress={() => {}}
           />
@@ -63,6 +74,21 @@ export default function App() {
 
         {currentScreen === 'inputAmount' && (
           <InputAmountScreen onBack={() => setCurrentScreen('templatesArea')} />
+        )}
+
+        {currentScreen === 'pin' && (
+          <PinScreen
+            onBack={() => setCurrentScreen('templatesArea')}
+            onComplete={() => setCurrentScreen('templatesArea')}
+          />
+        )}
+
+        {currentScreen === 'searchTemplate' && (
+          <SearchTemplateScreen onBack={() => setCurrentScreen('templatesArea')} />
+        )}
+
+        {currentScreen === 'review' && (
+          <ReviewScreen onClose={() => setCurrentScreen('templatesArea')} />
         )}
 
         {currentScreen === 'appHome' && (
@@ -73,7 +99,10 @@ export default function App() {
           <HomeScreen
             onBack={() => setCurrentScreen('appHome')}
             onOpenSelectBeneficiaryAccount={() => setShowSelectBeneficiaryAccount(true)}
-            onOpenSuccessScreen={() => setCurrentScreen('success')}
+            onOpenSuccessScreen={() => {
+              setSuccessScreenBackTo('gba');
+              setCurrentScreen('success');
+            }}
           />
         )}
 
@@ -86,10 +115,10 @@ export default function App() {
               { id: '2', primaryLabel: 'Primary label', description: 'Description', secondaryLabel: 'Secondary' },
             ]}
             primaryActionLabel="Primary action"
-            onPrimaryAction={() => setCurrentScreen('gba')}
+            onPrimaryAction={() => setCurrentScreen(successScreenBackTo)}
             showTopBar={true}
             screenTitle="Screen Title"
-            onBack={() => setCurrentScreen('gba')}
+            onBack={() => setCurrentScreen(successScreenBackTo)}
             onHelp={() => {}}
           />
         )}
