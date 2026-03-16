@@ -4,15 +4,18 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { CountryProvider } from './shared/contexts/CountryContext';
-import AppHomeScreen from './screens/AppHomeScreen';
-import HomeScreen from './screens/HomeScreen';
-import BaseScreen from './templates/BaseScreen';
+import AppHomeScreen from './templates/screens/AppHomeScreen';
+import HomeScreen from './templates/screens/HomeScreen';
+import SelectBeneficiaryAccountScreen from './templates/screens/SelectBeneficiaryAccountScreen';
+import SuccessScreen from './templates/screens/SuccessScreen';
 import InputAmountScreen from './sandbox/bruno/InputAmountScreen';
+import TemplatesArea from './sandbox/bruno/TemplatesArea';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState('inputAmount');
+  const [currentScreen, setCurrentScreen] = useState('templatesArea');
+  const [showSelectBeneficiaryAccount, setShowSelectBeneficiaryAccount] = useState(false);
 
   const [fontsLoaded] = useFonts({
     'Graphik-Thin': require('./assets/fonts/Graphik-Thin-Trial.otf'),
@@ -50,21 +53,52 @@ export default function App() {
       <CountryProvider>
         <StatusBar style={currentScreen === 'appHome' ? 'light' : 'auto'} />
 
-        {currentScreen === 'inputAmount' && (
-          <InputAmountScreen />
+        {currentScreen === 'templatesArea' && (
+          <TemplatesArea
+            onNavigate={(screen) => setCurrentScreen(screen)}
+            onBackPress={() => {}}
+            onActionPress={() => {}}
+          />
         )}
 
-        {currentScreen === 'baseScreen' && (
-          <BaseScreen />
+        {currentScreen === 'inputAmount' && (
+          <InputAmountScreen onBack={() => setCurrentScreen('templatesArea')} />
         )}
-        
+
         {currentScreen === 'appHome' && (
           <AppHomeScreen onNavigateToGBA={() => setCurrentScreen('gba')} />
         )}
-        
+
         {currentScreen === 'gba' && (
-          <HomeScreen onBack={() => setCurrentScreen('appHome')} />
+          <HomeScreen
+            onBack={() => setCurrentScreen('appHome')}
+            onOpenSelectBeneficiaryAccount={() => setShowSelectBeneficiaryAccount(true)}
+            onOpenSuccessScreen={() => setCurrentScreen('success')}
+          />
         )}
+
+        {currentScreen === 'success' && (
+          <SuccessScreen
+            title="Header title"
+            subtitle="Sub title"
+            items={[
+              { id: '1', primaryLabel: 'Primary label', description: 'Description', secondaryLabel: 'Secondary' },
+              { id: '2', primaryLabel: 'Primary label', description: 'Description', secondaryLabel: 'Secondary' },
+            ]}
+            primaryActionLabel="Primary action"
+            onPrimaryAction={() => setCurrentScreen('gba')}
+            showTopBar={true}
+            screenTitle="Screen Title"
+            onBack={() => setCurrentScreen('gba')}
+            onHelp={() => {}}
+          />
+        )}
+
+        <SelectBeneficiaryAccountScreen
+          visible={showSelectBeneficiaryAccount}
+          onClose={() => setShowSelectBeneficiaryAccount(false)}
+          onChooseOtherContact={() => setShowSelectBeneficiaryAccount(false)}
+        />
       </CountryProvider>
     </View>
   );

@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web --port 3000",
+    "web:dev": "expo start --web --clear --port 3000"
   },
   "dependencies": {
     "@nubank/nuds-vibecode-react-native": "^0.4.1",
