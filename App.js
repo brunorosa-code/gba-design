@@ -7,6 +7,7 @@ import { CountryProvider } from './shared/contexts/CountryContext';
 import AppHomeScreen from './templates/screens/AppHomeScreen';
 import HomeScreen from './templates/screens/HomeScreen';
 import SelectBeneficiaryAccountScreen from './templates/screens/SelectBeneficiaryAccountScreen';
+import SuccessScreen from './templates/screens/SuccessScreen';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -65,6 +66,24 @@ export default function App() {
         <HomeScreen
           onBack={() => setCurrentScreen('appHome')}
           onOpenSelectBeneficiaryAccount={() => setShowSelectBeneficiaryAccount(true)}
+          onOpenSuccessScreen={() => setCurrentScreen('success')}
+        />
+      )}
+
+      {currentScreen === 'success' && (
+        <SuccessScreen
+          title="Tudo certo!"
+          subtitle="Sua operação foi concluída com sucesso."
+          items={[
+            { id: '1', primaryLabel: 'Transferência', description: 'Enviada para conta destino', secondaryLabel: 'Concluída' },
+            { id: '2', primaryLabel: 'Valor', description: 'Disponível em 1 dia útil', secondaryLabel: 'OK' },
+          ]}
+          primaryActionLabel="Continuar"
+          onPrimaryAction={() => setCurrentScreen('gba')}
+          showTopBar={true}
+          screenTitle="Sucesso"
+          onBack={() => setCurrentScreen('gba')}
+          onHelp={() => {}}
         />
       )}
 

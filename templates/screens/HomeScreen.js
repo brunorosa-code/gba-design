@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-na
 import CountrySelector from '../../shared/components/CountrySelector';
 import { useTranslation } from '../../shared/hooks/useTranslation';
 
-export default function HomeScreen({ onBack, onOpenSelectBeneficiaryAccount }) {
+export default function HomeScreen({ onBack, onOpenSelectBeneficiaryAccount, onOpenSuccessScreen }) {
   const { t, currentCountry } = useTranslation();
 
   return (
@@ -49,6 +49,14 @@ export default function HomeScreen({ onBack, onOpenSelectBeneficiaryAccount }) {
               onPress={onOpenSelectBeneficiaryAccount}
             >
               <Text style={styles.openSheetButtonText}>Generic bottom sheet</Text>
+            </TouchableOpacity>
+          )}
+          {onOpenSuccessScreen && (
+            <TouchableOpacity
+              style={styles.openSheetButton}
+              onPress={onOpenSuccessScreen}
+            >
+              <Text style={styles.openSheetButtonText}>Success Screen</Text>
             </TouchableOpacity>
           )}
         </View>
