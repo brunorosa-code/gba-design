@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import {
   View,
   Text,
-  Image,
   StyleSheet,
   Modal,
   Platform,
@@ -13,17 +12,11 @@ import {
   Easing,
   Dimensions,
 } from 'react-native';
+import PlaceholderIconSvg from '../../assets/icons/placeholder_icon.svg';
+import CheckIconSvg from '../../assets/icons/check_icon.svg';
+import CloseIconSvg from '../../assets/icons/close.svg';
 import { colors, spacing, borderRadius, fontSizes } from '../../shared/tokens';
 
-// Ícone placeholder para list rows (assets/icons/placeholder_icon.svg)
-const PLACEHOLDER_ICON_SVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.15381 21H3.15381V19H5.15381V21ZM9.15381 21H7.15381V19H9.15381V21ZM13.1538 21H11.1538V19H13.1538V21ZM17.1538 21H15.1538V19H17.1538V21ZM21.1538 19V21H19.1538V19H21.1538ZM5.15381 17H3.15381V15H5.15381V17ZM21.1538 17H19.1538V15H21.1538V17ZM5.15381 13H3.15381V11H5.15381V13ZM21.1538 13H19.1538V11H21.1538V13ZM5.15381 9H3.15381V7H5.15381V9ZM21.1538 9H19.1538V7H21.1538V9ZM5.15381 5H3.15381V3H5.15381V5ZM9.15381 5H7.15381V3H9.15381V5ZM13.1538 5H11.1538V3H13.1538V5ZM17.1538 5H15.1538V3H17.1538V5ZM21.1538 5H19.1538V3H21.1538V5Z" fill="black" fill-opacity="0.96"/></svg>';
-const PLACEHOLDER_ICON_URI = `data:image/svg+xml,${encodeURIComponent(PLACEHOLDER_ICON_SVG)}`;
-
-// Ícones (check, close) em data URI — list row genérico alinhado ao Figma (List Row NuDS)
-const CHECK_ICON_SVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#000000"/></svg>';
-const CHECK_ICON_URI = `data:image/svg+xml,${encodeURIComponent(CHECK_ICON_SVG)}`;
-const CLOSE_ICON_SVG = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.0009 13.4152L18.2944 19.7087L19.7087 18.2944L13.4152 12.0009L19.7087 5.70733L18.2944 4.29297L12.0009 10.5865L5.70733 4.29297L4.29297 5.70733L10.5865 12.0009L4.29297 18.2944L5.70733 19.7087L12.0009 13.4152Z" fill="#000000" fill-opacity="0.64"/></svg>';
-const CLOSE_ICON_URI = `data:image/svg+xml,${encodeURIComponent(CLOSE_ICON_SVG)}`;
 
 /**
  * Bottom sheet "Selecionar conta beneficiária".
@@ -148,7 +141,7 @@ export default function SelectBeneficiaryAccountScreen({
             onPress={handleClose}
             hitSlop={{ top: 12, bottom: 12, left: 12, right: 12 }}
           >
-            <Image source={{ uri: CLOSE_ICON_URI }} style={styles.headerCloseIconImage} resizeMode="contain" />
+            <CloseIconSvg width={24} height={24} />
           </TouchableOpacity>
           <View style={styles.headerTextBlock}>
             <Text style={styles.headerTitle}>Header title</Text>
@@ -175,7 +168,7 @@ export default function SelectBeneficiaryAccountScreen({
               activeOpacity={0.7}
             >
               <View style={styles.listRowAvatar}>
-                <Image source={{ uri: PLACEHOLDER_ICON_URI }} style={styles.listRowPlaceholderIcon} resizeMode="contain" />
+                <PlaceholderIconSvg width={24} height={24} />
               </View>
               <View style={styles.listRowContent}>
                 <Text style={styles.listRowPrimary}>{account.primaryLabel}</Text>
@@ -183,7 +176,7 @@ export default function SelectBeneficiaryAccountScreen({
               </View>
               <View style={styles.listRowRight}>
                 <Text style={styles.listRowSecondaryRight}>{account.secondary}</Text>
-                <Image source={{ uri: CHECK_ICON_URI }} style={styles.listRowCheckImage} resizeMode="contain" />
+                <CheckIconSvg width={24} height={24} />
               </View>
             </TouchableOpacity>
           ))}

@@ -7,13 +7,10 @@ import {
   TouchableOpacity,
   TextInput,
   FlatList,
-  Image,
 } from 'react-native';
+import PlaceholderIcon from '../../assets/icons/placeholder_icon.svg';
+import SearchIcon from '../../assets/icons/search_icon.svg';
 import { colors, spacing, fontSizes, fontWeights, borderRadius } from '../../shared/tokens';
-
-const ICON_PLACEHOLDER_URI = `data:image/svg+xml,${encodeURIComponent('<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.1543 21H3.1543V19H5.1543V21ZM9.1543 21H7.1543V19H9.1543V21ZM13.1543 21H11.1543V19H13.1543V21ZM17.1543 21H15.1543V19H17.1543V21ZM21.1543 19V21H19.1543V19H21.1543ZM5.1543 17H3.1543V15H5.1543V17ZM21.1543 17H19.1543V15H21.1543V17ZM5.1543 13H3.1543V11H5.1543V13ZM21.1543 13H19.1543V11H21.1543V13ZM5.1543 9H3.1543V7H5.1543V9ZM21.1543 9H19.1543V7H21.1543V9ZM5.1543 5H3.1543V3H5.1543V5ZM9.1543 5H7.1543V3H9.1543V5ZM13.1543 5H11.1543V3H13.1543V5ZM17.1543 5H15.1543V3H17.1543V5ZM21.1543 5H19.1543V3H21.1543V5Z" fill="black" fill-opacity="0.96"/></svg>')}`;
-
-const SEARCH_ICON_URI = `data:image/svg+xml,${encodeURIComponent('<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.3315 11.361C9.48077 11.9982 8.42425 12.3756 7.27959 12.3756C4.46515 12.3756 2.18359 10.094 2.18359 7.27959C2.18359 4.46515 4.46515 2.18359 7.27959 2.18359C10.094 2.18359 12.3756 4.46515 12.3756 7.27959C12.3756 8.42425 11.9982 9.48077 11.361 10.3315L15.0744 14.0448L14.0448 15.0744L10.3315 11.361ZM10.9196 7.27959C10.9196 5.26928 9.28991 3.63959 7.27959 3.63959C5.26928 3.63959 3.63959 5.26928 3.63959 7.27959C3.63959 9.28991 5.26928 10.9196 7.27959 10.9196C9.28991 10.9196 10.9196 9.28991 10.9196 7.27959Z" fill="black" fill-opacity="0.64"/></svg>')}`;
 
 const LIST_ITEMS = [
   { id: '1', name: 'Label', description: 'Description' },
@@ -33,7 +30,7 @@ function ListRow({ item, isLast }) {
     <View>
       <TouchableOpacity style={styles.row} activeOpacity={0.6}>
         <View style={styles.avatar}>
-          <Image source={{ uri: ICON_PLACEHOLDER_URI }} style={styles.avatarIcon} />
+          <PlaceholderIcon width={24} height={24} />
         </View>
         <View style={styles.rowContent}>
           <Text style={styles.rowName} numberOfLines={1}>{item.name}</Text>
@@ -77,7 +74,7 @@ export default function SearchTemplateScreen({ onBack }) {
       {/* search_bar */}
       <View style={styles.searchWrapper}>
         <View style={styles.searchBar}>
-          <Image source={{ uri: SEARCH_ICON_URI }} style={styles.searchIcon} />
+          <SearchIcon width={18} height={18} />
           <TextInput
             style={styles.searchInput}
             placeholder="Buscar"
